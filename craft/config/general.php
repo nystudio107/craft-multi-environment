@@ -18,7 +18,7 @@ return array(
         'useEmailAsUsername' => true,
         'generateTransformsBeforePageLoad' => true,
 
-        // Set the enviromental variables
+        // Set the environmental variables
         'environmentVariables' => array(
             'baseUrl'  => getenv('CRAFTENV_BASE_URL'),
             'basePath' => getenv('CRAFTENV_BASE_PATH'),
