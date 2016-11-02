@@ -49,10 +49,10 @@ It's recommended that the `example.env.php` **is** checked into your git repo, s
 
 CME suggests the following environments, each of which can have different Craft settings per environment, independent of the private settings defined in `.env.php`:
 
-1. * - applies globally to all environments
-2. live - your live production environment
-3. staging - your staging or pre-production environment for client review, external testing, etc.
-4. local - your local development environment
+1. `*` - applies globally to all environments
+2. `live` - your live production environment
+3. `staging` - your staging or pre-production environment for client review, external testing, etc.
+4. `local` - your local development environment
 
 The `db.php` and `config.php` define each environment, and you can put whatever [Craft Config Settings](https://craftcms.com/docs/config-settings) you desire for each environment in each.  The names of the environments and the default settings for each are just suggestions, however.  You can change them to be whatever you like.
 
@@ -86,6 +86,7 @@ Inside the `<VirtualHost>` block:
     SetEnv CRAFTENV_DB_NAME "REPLACE_ME"
     SetEnv CRAFTENV_DB_USER "REPLACE_ME"
     SetEnv CRAFTENV_DB_PASS "REPLACE_ME"
+    SetEnv CRAFTENV_SITE_URL "REPLACE_ME"
     SetEnv CRAFTENV_BASE_URL "REPLACE_ME"
     SetEnv CRAFTENV_BASE_PATH "REPLACE_ME"
 
@@ -99,6 +100,7 @@ Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params`
     fastcgi_param CRAFTENV_DB_NAME "REPLACE_ME";
     fastcgi_param CRAFTENV_DB_USER "REPLACE_ME";
     fastcgi_param CRAFTENV_DB_PASS "REPLACE_ME";
+    fastcgi_param CRAFTENV_SITE_URL "REPLACE_ME";
     fastcgi_param CRAFTENV_BASE_URL "REPLACE_ME";
     fastcgi_param CRAFTENV_BASE_PATH "REPLACE_ME";
 
@@ -106,8 +108,14 @@ Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params`
 
 ## Craft-Multi-Environment Changelog
 
+### 1.0.1 -- 2016.11.02
+
+* [Added] Added support for `CRAFTENV_SITE_URL`
+* [Improved] Clarified the usage for `CRAFTENV_BASE_URL` & `CRAFTENV_BASE_PATH`
+* [Improved] Updated README.md
+
 ### 1.0.0 -- 2016.11.01
 
-* Initial release
+* [Improved] Initial release
 
 Brought to you by [nystudio107](https://nystudio107.com/)

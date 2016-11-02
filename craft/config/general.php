@@ -17,6 +17,7 @@ return array(
         'cacheDuration' => false,
         'useEmailAsUsername' => true,
         'generateTransformsBeforePageLoad' => true,
+        'siteUrl'  => getenv('CRAFTENV_SITE_URL'),
 
         // Set the environmental variables
         'environmentVariables' => array(
