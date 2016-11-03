@@ -29,7 +29,7 @@ Also, since we're using `getenv()`, these settings are globally accessible in th
 
 ### Assumptions
 
-CMS assumes that you have a folder structure such as this for your root project:
+CMS assumes that you have a folder structure such as this for your project root:
 
     .env.php
     craft/
