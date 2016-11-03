@@ -27,6 +27,19 @@ Also, since we're using `getenv()`, these settings are globally accessible in th
 
 ## Using Craft-Multi-Environment
 
+### Assumptions
+
+CMS assumes that you have a folder structure such as this for your root project:
+
+    .env.php
+    craft/
+    public/
+        index.php
+
+If your folder structure is different, that's fine.  But you may need to adjust the path to `.env.php` in the `index.php` file, and you may need to adjust the way `CRAFTENV_BASE_PATH` is constructed in your `.env.php` (or just hardcode the path).
+
+CME will also work fine with localized sites as well, you'll just need to adjust the aforementioned paths as appropriate.
+
 ### Setting it up
 
 1. Copy `craft/config/general.php` and `craft/config/db.php` to your project's `craft/config` folder

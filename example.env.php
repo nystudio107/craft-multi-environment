@@ -35,7 +35,7 @@ putenv('CRAFTENV_SITE_URL=' . (isset($_SERVER['HTTPS']) ? 'https://' : 'http://'
 putenv('CRAFTENV_BASE_URL=' . (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/');
 
 // The base path environmentVariable for Assets; it can be hard-coded as well
-putenv('CRAFTENV_BASE_PATH=' . realpath(dirname(__FILE__) . '/../') . '/public/');
+putenv('CRAFTENV_BASE_PATH=' . realpath(dirname(__FILE__)) . '/public/');
 
 /**
  * For production environments, this .env.php file can be used, or preferrably,
