@@ -80,6 +80,13 @@ By convention, all CME settings should be prefixed with `CRAFTENV_` for semantic
 
 You should also update the `example.env.php` to include any settings you add, for reference.
 
+### Accessing the settings in `general.php`
+
+You can access any variables defined in the `general.php` file in Twig via `{{ craft.config }}`.  e.g.:
+
+    {% if craft.config.env == "local" %}
+    {% endif %}
+
 ### Production via webserver config
 
 It's perfectly fine to use CME as discussed above in a production environment.  However, if you want an added measure of security and performance, you can set up your webserver to set the same globally accessible settings via webserver config.
@@ -120,6 +127,11 @@ Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params`
 (...and any other custom config settings you've added)
 
 ## Craft-Multi-Environment Changelog
+
+### 1.0.2 -- 2016.11.09
+
+* [Added] Added the `env` variable to `general.php`, accessible via `{{ craft.config.env }}`
+* [Improved] Updated README.md
 
 ### 1.0.1 -- 2016.11.02
 
