@@ -3,6 +3,9 @@
 // Load the local Craft environment
 if (file_exists('../.env.php'))
     require_once('../.env.php');
+// Default to 'live' environment
+if (!defined('CRAFT_ENVIRONMENT'))
+    define('CRAFT_ENVIRONMENT', 'live');
 
 // Path to your craft/ folder
 $craftPath = '../craft';
