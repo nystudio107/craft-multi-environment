@@ -84,7 +84,7 @@ You should also update the `example.env.php` to include any settings you add, fo
 
 You can access any variables defined in the `general.php` file in Twig via `{{ craft.config }}`.  e.g.:
 
-    {% if craft.config.env == "local" %}
+    {% if craft.config.craftEnv == "local" %}
     {% endif %}
 
 ### Production via webserver config
@@ -102,6 +102,7 @@ This is entirely optional, but if you're interested in doing it, here's how.
 
 Inside the `<VirtualHost>` block:
 
+    SetEnv CRAFTENV_CRAFT_ENVIRONMENT "REPLACE_ME"
     SetEnv CRAFTENV_DB_HOST "REPLACE_ME"
     SetEnv CRAFTENV_DB_NAME "REPLACE_ME"
     SetEnv CRAFTENV_DB_USER "REPLACE_ME"
@@ -116,6 +117,7 @@ Inside the `<VirtualHost>` block:
 
 Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params` file:
 
+    fastcgi_param CRAFTENV_CRAFT_ENVIRONMENT "REPLACE_ME";
     fastcgi_param CRAFTENV_DB_HOST "REPLACE_ME";
     fastcgi_param CRAFTENV_DB_NAME "REPLACE_ME";
     fastcgi_param CRAFTENV_DB_USER "REPLACE_ME";
@@ -127,6 +129,13 @@ Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params`
 (...and any other custom config settings you've added)
 
 ## Craft-Multi-Environment Changelog
+
+### 1.0.3 -- 2016.11.30
+
+* [Added] Added `CRAFTENV_CRAFT_ENVIRONMENT` so that the `CRAFT_ENVIRONMENT` constant is set via `.env.php`
+* [Added] Renamed `env` to `craftEnd`, accessible via `{{ craft.config.craftEnv }}`
+* [Added] Added an example Forge configuration in `forge-example`
+* [Improved] Updated README.md
 
 ### 1.0.2 -- 2016.11.09
 

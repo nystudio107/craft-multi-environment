@@ -17,8 +17,8 @@ return array(
         'cacheDuration' => false,
         'useEmailAsUsername' => true,
         'generateTransformsBeforePageLoad' => true,
-        'siteUrl'  => getenv('CRAFTENV_SITE_URL'),
-        'env'  => CRAFT_ENVIRONMENT,
+        'siteUrl' => getenv('CRAFTENV_SITE_URL'),
+        'craftEnv' => CRAFT_ENVIRONMENT,
 
         // Set the environmental variables
         'environmentVariables' => array(

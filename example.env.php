@@ -5,7 +5,7 @@
  * @copyright Copyright (c) 2016 nystudio107
  * @link      https://nystudio107.com/
  * @package   craft-multi-environment
- * @since     1.0.1
+ * @since     1.0.3
  * @license   MIT
  *
  * This file should be renamed to '.env.php' and it should reside in your root
@@ -43,6 +43,7 @@ putenv('CRAFTENV_BASE_PATH=' . realpath(dirname(__FILE__)) . '/public/');
  *
  * Apache - inside the <VirtualHost> block:
 
+SetEnv CRAFTENV_CRAFT_ENVIRONMENT "REPLACE_ME"
 SetEnv CRAFTENV_DB_HOST "REPLACE_ME"
 SetEnv CRAFTENV_DB_NAME "REPLACE_ME"
 SetEnv CRAFTENV_DB_USER "REPLACE_ME"
@@ -53,6 +54,7 @@ SetEnv CRAFTENV_BASE_PATH "REPLACE_ME"
 
  * Nginx - inside the server {} or location ~ \.php$ {} block:
 
+fastcgi_param CRAFTENV_CRAFT_ENVIRONMENT "REPLACE_ME";
 fastcgi_param CRAFTENV_DB_HOST "REPLACE_ME";
 fastcgi_param CRAFTENV_DB_NAME "REPLACE_ME";
 fastcgi_param CRAFTENV_DB_USER "REPLACE_ME";
