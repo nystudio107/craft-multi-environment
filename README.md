@@ -53,6 +53,9 @@ The `public/index.php` file included with CME just has the following added at th
     // Load the local Craft environment
     if (file_exists('../.env.php'))
         require_once('../.env.php');
+    // Default environment
+    if (!defined('CRAFT_ENVIRONMENT'))
+        define('CRAFT_ENVIRONMENT', getenv('CRAFTENV_CRAFT_ENVIRONMENT'));
 
 You will need to create an `.env.php` file for each environment on which your Craft CMS project will be used (other team member's local dev, staging, production, etc.), but the `db.php`, `general.php`, and `index.php` are the same on all environments.
 
