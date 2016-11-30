@@ -14,7 +14,7 @@
  */
 
 // The Craft environment we're running in ('local', 'staging', 'live', etc.).
-define('CRAFT_ENVIRONMENT', 'REPLACE_ME');
+putenv('CRAFTENV_CRAFT_ENVIRONMENT=' . 'REPLACE_ME');
 
 // The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
 putenv('CRAFTENV_DB_HOST=' . 'REPLACE_ME');
