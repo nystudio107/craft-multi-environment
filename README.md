@@ -4,7 +4,7 @@ Efficient and flexible multi-environment config for Craft CMS
 
 ## Overview
 
-[Multi-Environment Configs](https://craftcms.com/docs/multi-environment-configs) let you easily run a Craft CMS project in local dev, staging, and production.  They allow different people to work in different environments without painful setup or coordination. You can read a more in-depth discussion of it in the M[ulti-Environment Config](https://nystudio107.com/blog/multi-environment-config-for-craft-cms) for Craft CMS article.
+[Multi-Environment Configs](https://craftcms.com/docs/multi-environment-configs) let you easily run a Craft CMS project in local dev, staging, and production.  They allow different people to work in different environments without painful setup or coordination. You can read a more in-depth discussion of it in the M[ulti-Environment Config for Craft CMS](https://nystudio107.com/blog/multi-environment-config-for-craft-cms) article.
 
 ### Why another multi-environment config?
 
