@@ -2,7 +2,7 @@
 
 // Load the local Craft environment
 if (file_exists('../.env.php'))
-    require_once('../.env.php');
+    require_once '../.env.php';
 // Default environment
 if (!defined('CRAFT_ENVIRONMENT'))
     define('CRAFT_ENVIRONMENT', getenv('CRAFTENV_CRAFT_ENVIRONMENT'));

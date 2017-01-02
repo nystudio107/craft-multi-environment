@@ -2,10 +2,10 @@
 /**
  * Craft-Multi-Environment (CMS)
  * @author    nystudio107
- * @copyright Copyright (c) 2016 nystudio107
+ * @copyright Copyright (c) 2017 nystudio107
  * @link      https://nystudio107.com/
  * @package   craft-multi-environment
- * @since     1.0.3
+ * @since     1.0.4
  * @license   MIT
  *
  * This file should be renamed to '.env.php' and it should reside in your root
@@ -13,29 +13,38 @@
  * usage notes.
  */
 
-// The Craft environment we're running in ('local', 'staging', 'live', etc.).
-putenv('CRAFTENV_CRAFT_ENVIRONMENT=' . 'REPLACE_ME');
+// The $craftenv_vars are all auto-prefixed with CRAFTENV_ -- you can add whatever you want here
+// and access them via getenv() using the prefixed name
+$craftenv_vars = array(
+	// The Craft environment we're running in ('local', 'staging', 'live', etc.).
+	'CRAFT_ENVIRONMENT' => 'REPLACE_ME',
 
-// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
-putenv('CRAFTENV_DB_HOST=' . 'REPLACE_ME');
+	// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
+	'DB_HOST' => 'REPLACE_ME',
 
-// The name of the database to select.
-putenv('CRAFTENV_DB_NAME=' . 'REPLACE_ME');
+	// The name of the database to select.
+	'DB_NAME' => 'REPLACE_ME',
 
-// The database username to connect with.
-putenv('CRAFTENV_DB_USER=' . 'REPLACE_ME');
+	// The database username to connect with.
+	'DB_USER' => 'REPLACE_ME',
 
-// The database password to connect with.
-putenv('CRAFTENV_DB_PASS=' . 'REPLACE_ME');
+	// The database password to connect with.
+	'DB_PASS' => 'REPLACE_ME',
 
-// The site url to use; it can be hard-coded as well
-putenv('CRAFTENV_SITE_URL=' . (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/');
+	// The site url to use; it can be hard-coded as well
+	'SITE_URL' => (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/',
 
-// The base url environmentVariable to use for Assets; it can be hard-coded as well
-putenv('CRAFTENV_BASE_URL=' . (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/');
+	// The base url environmentVariable to use for Assets; it can be hard-coded as well
+	'BASE_URL' => (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/',
 
-// The base path environmentVariable for Assets; it can be hard-coded as well
-putenv('CRAFTENV_BASE_PATH=' . realpath(dirname(__FILE__)) . '/public/');
+	// The base path environmentVariable for Assets; it can be hard-coded as well
+	'BASE_PATH=' . realpath(dirname(__FILE__)) . '/public/',
+);
+
+// Set all of the .env values, auto-prefixed with `CRAFTENV_`
+foreach ($craftenv_vars as $key => $value) {
+    putenv("CRAFTENV_$key=$value");
+}
 
 /**
  * For production environments, this .env.php file can be used, or preferrably,

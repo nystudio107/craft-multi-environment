@@ -52,7 +52,7 @@ The `public/index.php` file included with CME just has the following added at th
 
     // Load the local Craft environment
     if (file_exists('../.env.php'))
-        require_once('../.env.php');
+        require_once '../.env.php';
     // Default environment
     if (!defined('CRAFT_ENVIRONMENT'))
         define('CRAFT_ENVIRONMENT', getenv('CRAFTENV_CRAFT_ENVIRONMENT'));
@@ -74,14 +74,14 @@ The `db.php` and `config.php` define each environment, and you can put whatever 
 
 ### Extending it
 
-If you have additional settings that need to be globally accessible, you can just add them to the `.env.php`.  For example, let's say we need a private key for Stripe, you can add this to `.env.php`:
+If you have additional settings that need to be globally accessible, you can just add them to the `.env.php`.  For example, let's say we need a private key for Stripe, you can add this to `.env.php` by adding it to the `$craftenv_vars` array:
 
     // The private Stripe key.
-    putenv('CRAFTENV_STRIPE_KEY=' . 'REPLACE_ME');
+    'STRIPE_KEY' => 'REPLACE_ME',
 
-By convention, all CME settings should be prefixed with `CRAFTENV_` for semantic reasons, and to avoid namespace collisions.
+CME will auto-prefix all settings in the `$craftenv_vars` with `CRAFTENV_` for semantic reasons, and to avoid namespace collisions.
 
-You should also update the `example.env.php` to include any settings you add, for reference.
+You should also update the `example.env.php` to include any settings you add, for reference and your team's reference.
 
 ### Accessing the settings in `general.php`
 
@@ -132,6 +132,11 @@ Inside the `server {}` or `location ~ \.php {}` block or in the `fastcgi_params`
 (...and any other custom config settings you've added)
 
 ## Craft-Multi-Environment Changelog
+
+### 1.0.4 -- 2017.01.02
+
+* [Improved] Refactored the `example.env.php` to set the `CRAFTENV` vars in an array, and auto-prefix them programatically
+* [Improved] Updated README.md
 
 ### 1.0.3 -- 2016.11.30
 
