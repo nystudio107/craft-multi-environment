@@ -50,7 +50,7 @@ $craftenv_vars = array(
 
 // Set all of the .env values, auto-prefixed with `CRAFTENV_`
 foreach ($craftenv_vars as $key => $value) {
-    putenv("CRAFTENV_$key=$value");
+    putenv("CRAFTENV_{$key}={$value}");
 }
 
 /**
