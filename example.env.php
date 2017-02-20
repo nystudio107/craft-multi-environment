@@ -15,14 +15,15 @@
 
 // Determine the incoming protocol
 if (isset($_SERVER['HTTPS']) && (strcasecmp($_SERVER['HTTPS'], 'on') === 0 || $_SERVER['HTTPS'] == 1)
-            || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strcasecmp($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') === 0) {
+    || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strcasecmp($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') === 0
+) {
     $protocol = "https://";
 } else {
     $protocol = "http://";
 }
-// The $craftenv_vars are all auto-prefixed with CRAFTENV_ -- you can add whatever you want here
-// and access them via getenv() using the prefixed name
-$craftenv_vars = array(
+// The $craftEnvVars are all auto-prefixed with CRAFTENV_ -- you can add
+// whatever you want here and access them via getenv() using the prefixed name
+$craftEnvVars = array(
     // The Craft environment we're running in ('local', 'staging', 'live', etc.).
     'CRAFT_ENVIRONMENT' => 'REPLACE_ME',
 
@@ -49,12 +50,12 @@ $craftenv_vars = array(
 );
 
 // Set all of the .env values, auto-prefixed with `CRAFTENV_`
-foreach ($craftenv_vars as $key => $value) {
+foreach ($craftEnvVars as $key => $value) {
     putenv("CRAFTENV_{$key}={$value}");
 }
 
 /**
- * For production environments, this .env.php file can be used, or preferrably,
+ * For production environments, this .env.php file can be used, or preferably,
  * (for security & speed), set the $_ENV variables directly from the server config.
  *
  * Apache - inside the <VirtualHost> block:
