@@ -1,5 +1,10 @@
 # Craft-Multi-Environment Changelog
 
+## 1.0.5 -- 2017.02.20
+### Changed
+* Handle load balancing and shared environments better via a check for `HTTP_X_FORWARDED_PROTO` in the protocol
+* General code cleanup
+
 ## 1.0.4 -- 2017.01.02
 
 * [Improved] Refactored the `example.env.php` to set the `CRAFTENV` vars in an array, and auto-prefix them programatically
