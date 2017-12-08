@@ -21,6 +21,8 @@ if (isset($_SERVER['HTTPS']) && (strcasecmp($_SERVER['HTTPS'], 'on') === 0 || $_
 } else {
     $protocol = "http://";
 }
+// Determine the server hostname
+$httpHost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
 // The $craftEnvVars are all auto-prefixed with CRAFTENV_ -- you can add
 // whatever you want here and access them via getenv() using the prefixed name
 $craftEnvVars = array(
@@ -40,10 +42,10 @@ $craftEnvVars = array(
     'DB_PASS' => 'REPLACE_ME',
 
     // The site url to use; it can be hard-coded as well
-    'SITE_URL' => $protocol . $_SERVER['HTTP_HOST'] . '/',
+    'SITE_URL' => $protocol . $httpHost . '/',
 
     // The base url environmentVariable to use for Assets; it can be hard-coded as well
-    'BASE_URL' => $protocol . $_SERVER['HTTP_HOST'] . '/',
+    'BASE_URL' => $protocol . $httpHost . '/',
 
     // The base path environmentVariable for Assets; it can be hard-coded as well
     'BASE_PATH' => realpath(dirname(__FILE__)) . '/public/',
