@@ -18,7 +18,6 @@ return array(
         'useEmailAsUsername' => true,
         'generateTransformsBeforePageLoad' => true,
         'siteUrl' => getenv('CRAFTENV_SITE_URL'),
-        'craftEnv' => CRAFT_ENVIRONMENT,
         'defaultSearchTermOptions' => array(
             'subLeft' => true,
             'subRight' => true,
@@ -28,6 +27,13 @@ return array(
             'baseUrl'  => getenv('CRAFTENV_BASE_URL'),
             'basePath' => getenv('CRAFTENV_BASE_PATH'),
         ),
+        // Custom site-specific config settings
+        'custom' => array(
+            'basePath' => getenv('CRAFTENV_BASE_PATH'),
+            'baseUrl' => getenv('CRAFTENV_BASE_URL'),
+            'craftEnv' => CRAFT_ENVIRONMENT,
+            'staticAssetsVersion' => 1,
+        ),
     ),
 
     // Live (production) environment
@@ -35,6 +41,9 @@ return array(
         'devMode' => false,
         'enableTemplateCaching' => true,
         'allowAutoUpdates' => false,
+        // Custom site-specific config settings
+        'custom' => array(
+        ),
     ),
 
     // Staging (pre-production) environment
@@ -42,6 +51,9 @@ return array(
         'devMode' => false,
         'enableTemplateCaching' => true,
         'allowAutoUpdates' => false,
+        // Custom site-specific config settings
+        'custom' => array(
+        ),
     ),
 
     // Local (development) environment
@@ -49,5 +61,8 @@ return array(
         'devMode' => true,
         'enableTemplateCaching' => false,
         'allowAutoUpdates' => true,
+        // Custom site-specific config settings
+        'custom' => array(
+        ),
     ),
 );
